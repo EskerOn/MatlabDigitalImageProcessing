@@ -1,3 +1,6 @@
+#Matlab autosave file
+*.asv
+
 # JPEG
 *.jpg
 *.jpeg
