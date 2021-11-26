@@ -1,0 +1,17 @@
+road=imread('road.png')
+road=rgb2gray(road)
+
+shack=imread('shack.png')
+shack=rgb2gray(shack)
+
+tool1=imread('tool1.png')
+tool1=rgb2gray(tool1)
+
+tool2=imread('tool2.png')
+tool2=rgb2gray(tool2)
+
+circle=imread('circle.png')
+circle=rgb2gray(circle)
+
+square=imread('square.png')
+square=rgb2gray(square)

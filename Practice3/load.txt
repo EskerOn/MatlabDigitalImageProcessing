@@ -1,0 +1,14 @@
+bee=imread('bee.jpg')
+bee=rgb2gray(bee)
+
+fig=imread('Figures.png')
+fig=rgb2gray(fig)
+
+cat=imread('cat.jpg')
+cat=rgb2gray(cat)
+
+books=imread('Books.jpg')
+books=rgb2gray(books)
+
+text=imread('Text.jpg')
+text=rgb2gray(text)
