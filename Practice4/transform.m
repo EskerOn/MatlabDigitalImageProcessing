@@ -8,8 +8,8 @@ function R = transform(img1, op, x, y)
     switch op
     case 'tras'
         R = traslation(img1, x, y);
-    case 'res'
-        R = resta(img1, img2);
+    case 'rot'
+        R = rotation(img1, x);
     case 'mul'
         R = multiplicacion(img1, img2);
     case 'div'
