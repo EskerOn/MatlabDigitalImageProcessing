@@ -12,27 +12,27 @@ function Res = rotation(img1, angle)
             Res = inverted';
         otherwise
             rotationMatrix = [cosd(angle) -sind(angle); sind(angle) cosd(angle)];
-            %center of the image
+            %centro
             centerX = ceil(x/2);
             centerY = ceil(y/2);
-            % array with corners of the image
+            % Esquinas
             corners = [1 1; 1 y; x 1; x y];
             auxMat = [centerX centerY; centerX centerY; centerX centerY; centerX centerY];
-            % rotate and translate corners
+            % rotar esquinas
             corners=corners-auxMat;
             corners=floor((rotationMatrix*corners')');
             corners=corners+auxMat;
-            % find min and max corners
+            % minimo y maximo escquinas
             minX = min(corners(:,1));
             maxX = max(corners(:,1));
             minY = min(corners(:,2));
             maxY = max(corners(:,2));
-            % calculate new size of the image
+            % nuevo tamaño
             newX = maxX - minX + 1;
             newY = maxY - minY + 1;
             newCenterX = floor(newX/2);
             newCenterY = floor(newY/2);
-            %calculate the new image
+            %rotacion
             Res = zeros(newX, newY);
             for i = 1:newX
                 for j = 1:newY
