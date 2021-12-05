@@ -3,14 +3,17 @@
 function Res = ComputeCCV(img, imgsizepercent, nbins)
     %imgsizepercent to number of pixels according to the size of the image
 
-    %grayscaleimg = rgb2gray(img);
-    %imT = ceil(numel(grayscaleimg)/100*imgsizepercent);
-    imT = 4;
+    grayscaleimg = rgb2gray(img);
+    imT = ceil(numel(grayscaleimg)/100*imgsizepercent);
+    
+    %imT = 4;
+    
     ColorCoherenceVector = zeros(nbins,2);
     %blur the image 8 neighbour pixels 
-    %img = imfilter(img,fspecial('average',[9 9]),'replicate');
-    %decMatrix = rgbtoDec(img);
-    decMatrix =img;
+    img = imfilter(img,fspecial('average',[9 9]),'replicate');
+    decMatrix = rgbtoDec(img);
+    
+    %decMatrix =img;
     %discretize the color space to nbins
     disMat = discretize(decMatrix,nbins);
     disp(disMat);
