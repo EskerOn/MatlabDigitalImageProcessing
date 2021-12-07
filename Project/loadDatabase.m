@@ -1,6 +1,9 @@
 function R = loadDatabase(percentage, colors)
     % Loads the database of images in path
     filePath = 'E:\MatlabCode\MatlabDigitalImageProcessing\Project\database\';
+    originalPath = 'E:\MatlabCode\MatlabDigitalImageProcessing\Project\origin\';
+    %add folder to path
+    addpath(originalPath);
     fileList = dir(filePath);
     R = cell(length(fileList)-2, 2);
     rindex = 1;

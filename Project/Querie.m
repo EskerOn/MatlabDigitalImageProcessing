@@ -1,4 +1,4 @@
-function R = mainFun(imgstr, percentage, colors, database)
+function R = Querie(imgstr, percentage, colors, database)
     img =imread(imgstr);
     figure(1);
     subplot(2,2,1);
@@ -18,8 +18,6 @@ function R = mainFun(imgstr, percentage, colors, database)
         imgtemp = imread(sortedcvv{i,2});
         subplot(2,2,i+1);
         imshow(imgtemp);
-        title(strcat('similar image:  ', int2str(i)));
-        disp('rank')
-        disp(sortedcvv{i,1})
+        title(strcat('similar image:  ', int2str(i) ) );
     end
 end
