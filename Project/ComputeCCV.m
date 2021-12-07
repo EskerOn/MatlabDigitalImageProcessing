@@ -3,10 +3,7 @@
 function Res = ComputeCCV(img, imgsizepercent, nbins)
     %imgsizepercent to number of pixels according to the size of the image
 
-    grayscaleimg = rgb2gray(img);
-    imT = ceil(numel(grayscaleimg)/100*imgsizepercent);
-    
-    %imT = 4;
+    imT = ceil(numel(img(:,:,1))/100*imgsizepercent);
     
     ColorCoherenceVector = zeros(nbins,2);
     %blur the image 8 neighbour pixels 
@@ -18,14 +15,14 @@ function Res = ComputeCCV(img, imgsizepercent, nbins)
     maxv=max(max(decMatrix));
     minv=min(min(decMatrix));
     binsize = ceil( (1+maxv-minv) / nbins );
-    b = fix( (1+maxv-minv) / nbins );
+    b = mod( (1+maxv-minv) , nbins );
     maxedge=maxv+b;
     myEdges=minv:binsize:maxedge;
-    
     disMat = discretize(decMatrix,myEdges);
     
     %disMat = discretize(decMatrix,nbins);
-    disp(disMat);
+    
+    %disp(disMat);
     %Determining the pixel groups by computing connected components for each value of the discretized image
     for i = 1:nbins
         [L,num] = bwlabel(disMat==i);

@@ -2,10 +2,8 @@
 %This function discretize the color  and converts the RGB Image to one channel image 
 function Res = TestCCV(img, nbins)
     %imgsizepercent to number of pixels according to the size of the image
-
-    
     imT = 4;
-    
+
     ColorCoherenceVector = zeros(nbins,2);
     %blur the image 8 neighbour pixels 
     %img = imfilter(img,fspecial('average',[9 9]),'replicate');
@@ -15,7 +13,8 @@ function Res = TestCCV(img, nbins)
     maxv=max(max(img));
     minv=min(min(img));
     binsize = ceil( (1+maxv-minv) / nbins );
-    b = fix( (1+maxv-minv) / nbins );
+    b = mod( (1+maxv-minv) , nbins );
+    disp(b+maxv)
     myEdges=minv:binsize:maxv+b;
     
     disMat = discretize(decMatrix,myEdges);
